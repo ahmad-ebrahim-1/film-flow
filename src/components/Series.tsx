@@ -1,7 +1,5 @@
-import React from "react";
-
 const Series = () => {
-  return <div></div>;
+  return <div>Series</div>;
 };
 
 export default Series;
