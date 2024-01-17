@@ -23,7 +23,7 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           alignItems: "center",
           gap: "3.5rem",
           minHeight: "inherit",
-          background: `url(${isDark ? darkBg : lightBg})`,
+          background: `url('${isDark ? darkBg : lightBg}')`,
           backgroundPosition: "center",
         }}
       >
