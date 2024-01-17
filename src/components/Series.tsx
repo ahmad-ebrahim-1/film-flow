@@ -1,5 +1,5 @@
 const Series = () => {
-  return <div>Series</div>;
+  return <div></div>;
 };
 
 export default Series;

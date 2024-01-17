@@ -29,7 +29,7 @@ import logo from "../assets/logo.jpg";
 const links: { name: string; path: string; icon: JSX.Element }[] = [
   {
     name: "Home",
-    path: "/",
+    path: "/film-flow",
     icon: <HomeIcon />,
   },
   {
