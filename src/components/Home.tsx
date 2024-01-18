@@ -9,23 +9,14 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import FullScreen from "./FullScreen";
 
-import lightBg from "../assets/lightBackground.svg";
-import darkBg from "../assets/darkBackground.svg";
+import "../App.css";
 
 const Home = ({ isDark }: { isDark: boolean }) => {
   return (
     <FullScreen>
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "3.5rem",
-          minHeight: "inherit",
-          background: `url('${isDark ? darkBg : lightBg}')`,
-          backgroundPosition: "center",
-        }}
+        component="div"
+        className={`home-container ${isDark ? "dark-bg" : "light-bg"}`}
       >
         <Typography
           variant="h1"

@@ -4,3 +4,21 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  min-height: inherit;
+  background-position: center;
+}
+
+.light-bg {
+  background-image: url("./assets/lightBackground.svg");
+}
+
+.dark-bg {
+  background-image: url("./assets/darkBackground.svg");
+}
