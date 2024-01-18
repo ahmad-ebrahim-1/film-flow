@@ -23,9 +23,10 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           maxWidth="lg"
           sx={{
             fontFamily: "Lexend",
-            textAlign: "center",
             fontSize: { xs: "2.6rem", sm: "4rem", md: "5rem" },
             fontWeight: "900",
+            textAlign: "center",
+            paddingInline: { xs: "0.6rem", md: "1rem" },
           }}
         >
           <Box sx={{ color: "primary.main" }}>Discover</Box> Movies, Series &
