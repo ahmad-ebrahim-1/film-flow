@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Typography,
   TextField,
@@ -7,11 +9,15 @@ import {
   Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import FullScreen from "./FullScreen";
+import FullScreen from "../components/FullScreen";
 
 import "../App.css";
 
 const Home = ({ isDark }: { isDark: boolean }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
+
   return (
     <FullScreen>
       <Box
@@ -23,10 +29,9 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           maxWidth="lg"
           sx={{
             fontFamily: "Lexend",
-            fontSize: { xs: "2.6rem", sm: "4rem", md: "5rem" },
+            fontSize: { xs: "2.6rem", sm: "4rem", lg: "5rem" },
             fontWeight: "900",
             textAlign: "center",
-            paddingInline: { xs: "0.6rem", md: "1rem" },
           }}
         >
           <Box sx={{ color: "primary.main" }}>Discover</Box> Movies, Series &
@@ -36,11 +41,22 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           direction="row"
           spacing="2px"
           sx={{
-            width: { sx: "75%", sm: "60%", md: "55%" },
+            width: { xs: "90%", sm: "80%", md: "65%", lg: "55%" },
           }}
         >
-          <TextField fullWidth placeholder="Search a movie, series..." />
+          <TextField
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            fullWidth
+            placeholder="Search a movie, series..."
+          />
           <IconButton
+            disabled={!searchTerm}
+            onClick={() => {
+              navigate("/results", {
+                state: { searchTerm: searchTerm },
+              });
+            }}
             sx={{
               padding: "1rem",
               borderRadius: "4px",

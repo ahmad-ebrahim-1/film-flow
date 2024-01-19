@@ -135,7 +135,6 @@ const NavBar = ({
                   color: "#FFF",
                   ":hover": { backgroundColor: "rgba(0, 0, 0, 0.2)" },
                   display: {
-                    sx: "inline-block",
                     md: `${btn.name === "menu" && "none"}`,
                   },
                 }}

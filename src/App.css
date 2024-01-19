@@ -1,10 +1,11 @@
+/* APP */
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+/* HOME */
 .home-container {
   display: flex;
   flex-direction: column;
