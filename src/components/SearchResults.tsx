@@ -63,9 +63,9 @@ const SearchResults = () => {
     <FullScreen>
       <Stack
         direction="row"
-        spacing={2}
         sx={{
           pt: { xs: "5rem", sm: "6rem" },
+          justifyContent: "space-between",
           alignItems: "center",
         }}
       >
