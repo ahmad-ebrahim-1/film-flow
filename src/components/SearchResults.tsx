@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FeedbackIcon from "@mui/icons-material/Feedback";
 
 // title type
 type titleType = {
@@ -57,7 +58,10 @@ const SearchResults = () => {
 
   if (isFetching) return <Loader />;
 
-  if (isError || !results) return <Error msg="Oops! Please try again later" />;
+  if (isError)
+    return (
+      <Error msg="Sorry, we seem to be having a problem. Please try again later" />
+    );
 
   return (
     <FullScreen>
@@ -81,53 +85,74 @@ const SearchResults = () => {
           Search Results
         </Typography>
       </Stack>
-      <Grid
-        container
-        spacing={4}
-        sx={{
-          paddingBlock: "1rem",
-          justifyContent: "center",
-        }}
-      >
-        {results?.data?.d.map((title: titleType) => (
-          <Grid item key={title?.id}>
-            <Card
-              variant="outlined"
-              sx={{
-                maxWidth: "300px",
-              }}
-            >
-              <CardMedia
+      {results?.data?.d.length === 0 ? (
+        <Stack
+          spacing={2}
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            mt: "6rem",
+          }}
+        >
+          <FeedbackIcon fontSize="large" />
+          <Typography
+            variant="h5"
+            maxWidth="sm"
+            textAlign="center"
+          >{`There are no search results for "${searchTerm}"`}</Typography>
+        </Stack>
+      ) : (
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            paddingBlock: "1rem",
+            justifyContent: "center",
+          }}
+        >
+          {results?.data?.d.map((title: titleType) => (
+            <Grid item key={title?.id}>
+              <Card
+                variant="outlined"
                 sx={{
-                  height: "400px",
-                  aspectRatio: "3 / 4",
-                  objectFit: "cover",
+                  maxWidth: "300px",
                 }}
-                image={title?.i?.imageUrl || demoImage}
-                title={title?.l}
-              />
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {`${title?.l} (${title?.y})`}
-                </Typography>
-                <Stack direction="row" sx={{ justifyContent: "space-between" }}>
-                  <Typography variant="subtitle1">
-                    Rank: {title?.rank}
+              >
+                <CardMedia
+                  sx={{
+                    height: "400px",
+                    aspectRatio: "3 / 4",
+                    objectFit: "cover",
+                  }}
+                  image={title?.i?.imageUrl || demoImage}
+                  title={title?.l}
+                />
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {`${title?.l} (${title?.y})`}
                   </Typography>
-                  <Typography variant="subtitle1">{title?.q}</Typography>
-                </Stack>
-                <Divider />
-              </CardContent>
-              <CardActions sx={{ justifyContent: "space-between" }}>
-                <Button>Show more</Button>
-                <IconButton>
-                  <FavoriteIcon />
-                </IconButton>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                  <Stack
+                    direction="row"
+                    sx={{ justifyContent: "space-between" }}
+                  >
+                    <Typography variant="subtitle1">
+                      Rank: {title?.rank}
+                    </Typography>
+                    <Typography variant="subtitle1">{title?.q}</Typography>
+                  </Stack>
+                  <Divider />
+                </CardContent>
+                <CardActions sx={{ justifyContent: "space-between" }}>
+                  <Button>Show more</Button>
+                  <IconButton>
+                    <FavoriteIcon />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </FullScreen>
   );
 };

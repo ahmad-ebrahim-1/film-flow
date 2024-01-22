@@ -10,10 +10,8 @@ const Error = ({ msg }: { msg: string }) => {
           spacing={2}
           sx={{ justifyContent: "center", alignItems: "center" }}
         >
-          <ErrorIcon
-            sx={{ width: "4rem", height: "4rem", color: "error.main" }}
-          />
-          <Typography variant="h4" maxWidth="md" textAlign="center">
+          <ErrorIcon fontSize="large" sx={{ color: "error.main" }} />
+          <Typography variant="h5" maxWidth="sm" textAlign="center">
             {msg}
           </Typography>
         </Stack>
