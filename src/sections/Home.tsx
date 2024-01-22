@@ -29,7 +29,7 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           maxWidth="lg"
           sx={{
             fontFamily: "Lexend",
-            fontSize: { xs: "2.6rem", sm: "4rem", lg: "5rem" },
+            fontSize: { xs: "2.6rem", sm: "4rem", lg: "4.6rem" },
             fontWeight: "900",
             textAlign: "center",
           }}
@@ -41,7 +41,7 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           direction="row"
           spacing="2px"
           sx={{
-            width: { xs: "90%", sm: "80%", md: "65%", lg: "55%" },
+            width: { xs: "90%", sm: "500px", md: "600px" },
           }}
         >
           <TextField
