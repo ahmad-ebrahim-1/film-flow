@@ -8,10 +8,11 @@ import Loader from "./Loader";
 import Error from "./Error";
 import {
   Typography,
+  Grid,
+  Toolbar,
   Stack,
   Button,
   IconButton,
-  Grid,
   Card,
   CardMedia,
   CardContent,
@@ -61,7 +62,7 @@ const SearchResults = () => {
   } = useQuery({
     queryKey: ["searchResults", searchTerm],
     queryFn: () => fetchApi(`/auto-complete?q=${searchTerm}`),
-    // enabled: false,
+    enabled: false,
   });
 
   useEffect(() => {
@@ -92,10 +93,10 @@ const SearchResults = () => {
 
   return (
     <FullScreen>
-      <Stack
-        direction="row"
+      <Toolbar
         sx={{
           pt: { xs: "5rem", sm: "6rem" },
+          paddingInline: { xs: "0", sm: "16px" },
           justifyContent: "space-between",
           alignItems: "end",
         }}
@@ -103,7 +104,7 @@ const SearchResults = () => {
         <IconButton onClick={() => navigate(-1)} size="large">
           <ArrowBack />
         </IconButton>
-        <FormControl variant="standard" sx={{ minWidth: 120 }}>
+        <FormControl variant="standard" sx={{ minWidth: { xs: 100, sm: 120 } }}>
           <InputLabel id="filtring-select">type</InputLabel>
           <Select
             labelId="filtring-select"
@@ -122,11 +123,12 @@ const SearchResults = () => {
           variant="h5"
           sx={{
             fontFamily: "Lexend",
+            fontSize: { xs: "1.25rem", sm: "h5.fontSize" },
           }}
         >
           Search Results
         </Typography>
-      </Stack>
+      </Toolbar>
       {searchResults?.length === 0 ? (
         <Stack
           spacing={2}

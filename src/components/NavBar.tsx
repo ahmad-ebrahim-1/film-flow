@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Typography,
@@ -54,12 +54,16 @@ const NavBar = ({
   setIsDark,
 }: {
   isDark: boolean;
-  setIsDark: Function;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [drawerIsVisible, setDrawerIsVisible] = useState(false);
+  const [drawerIsVisible, setDrawerIsVisible] = useState<boolean>(false);
 
   // Appbar buttons
-  const appBarBtns: { name: string; icon: JSX.Element; action: Function }[] = [
+  const appBarBtns: {
+    name: string;
+    icon: JSX.Element;
+    action: () => void;
+  }[] = [
     {
       name: "theme",
       icon: isDark ? <LightMode /> : <DarkMode />,
@@ -95,7 +99,7 @@ const NavBar = ({
               alt="Logo"
               src={logo}
             />
-            <Typography variant="h5" sx={{ fontFamily: "Lexend" }}>
+            <Typography variant="h6" sx={{ fontFamily: "Lexend" }}>
               FilmFlow
             </Typography>
           </Stack>
