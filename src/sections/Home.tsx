@@ -41,14 +41,15 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           direction="row"
           spacing="2px"
           sx={{
-            width: { xs: "90%", sm: "500px", md: "600px" },
+            width: { xs: "100%", sm: "500px", md: "600px" },
           }}
         >
           <TextField
+            id="search-bar"
+            label="Search title, album, song, etc..."
+            fullWidth
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            fullWidth
-            placeholder="Search a movie, series..."
           />
           <IconButton
             disabled={!searchTerm}
