@@ -65,12 +65,12 @@ const NavBar = ({
     action: () => void;
   }[] = [
     {
-      name: "theme",
+      name: "theme button",
       icon: isDark ? <LightMode /> : <DarkMode />,
       action: () => setIsDark(!isDark),
     },
     {
-      name: "menu",
+      name: "menu button",
       icon: <MenuIcon />,
       action: () => setDrawerIsVisible(!drawerIsVisible),
     },
@@ -119,6 +119,7 @@ const NavBar = ({
                 }}
               >
                 <Button
+                  aria-label={link.name}
                   variant="text"
                   startIcon={link.icon}
                   sx={{
@@ -135,11 +136,12 @@ const NavBar = ({
             {appBarBtns.map((btn) => (
               <IconButton
                 key={btn.name}
+                aria-label={btn.name}
                 sx={{
                   color: "#FFF",
                   ":hover": { backgroundColor: "rgba(0, 0, 0, 0.2)" },
                   display: {
-                    md: `${btn.name === "menu" && "none"}`,
+                    md: `${btn.name === "menu button" && "none"}`,
                   },
                 }}
                 onClick={() => btn.action()}
@@ -179,7 +181,10 @@ const NavBar = ({
                   };
                 }}
               >
-                <ListItemButton onClick={() => setDrawerIsVisible(false)}>
+                <ListItemButton
+                  aria-label={link.name}
+                  onClick={() => setDrawerIsVisible(false)}
+                >
                   <ListItemIcon>{link.icon}</ListItemIcon>
                   <ListItemText>{link.name.toUpperCase()}</ListItemText>
                 </ListItemButton>

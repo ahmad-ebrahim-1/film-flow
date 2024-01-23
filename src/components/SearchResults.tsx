@@ -101,7 +101,11 @@ const SearchResults = () => {
           alignItems: "end",
         }}
       >
-        <IconButton onClick={() => navigate(-1)} size="large">
+        <IconButton
+          aria-label="arrow back button"
+          onClick={() => navigate(-1)}
+          size="large"
+        >
           <ArrowBack />
         </IconButton>
         <FormControl variant="standard" sx={{ minWidth: { xs: 100, sm: 120 } }}>
@@ -187,8 +191,8 @@ const SearchResults = () => {
                   <Divider />
                 </CardContent>
                 <CardActions sx={{ justifyContent: "space-between" }}>
-                  <Button>Show more</Button>
-                  <IconButton>
+                  <Button aria-label="Show more">Show more</Button>
+                  <IconButton aria-label="favorite button">
                     <FavoriteIcon />
                   </IconButton>
                 </CardActions>

@@ -52,6 +52,7 @@ const Home = ({ isDark }: { isDark: boolean }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <IconButton
+            aria-label="search button"
             disabled={!searchTerm}
             onClick={() => {
               navigate("/results", {
@@ -70,10 +71,11 @@ const Home = ({ isDark }: { isDark: boolean }) => {
           </IconButton>
         </Stack>
         <Stack direction="row" spacing={2}>
-          <Button variant="contained" size="large">
+          <Button aria-label="Show more" variant="contained" size="large">
             Show more
           </Button>
           <Button
+            aria-label="About us"
             variant="outlined"
             size="large"
             sx={{ backdropFilter: "blur(2px)" }}
