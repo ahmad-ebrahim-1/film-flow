@@ -62,7 +62,7 @@ const SearchResults = () => {
   } = useQuery({
     queryKey: ["searchResults", searchTerm],
     queryFn: () => fetchApi(`/auto-complete?q=${searchTerm}`),
-    enabled: false,
+    // enabled: false,
   });
 
   useEffect(() => {

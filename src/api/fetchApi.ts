@@ -4,7 +4,7 @@ const baseUrl: string = "https://imdb8.p.rapidapi.com";
 
 const options = {
   headers: {
-    "X-RapidAPI-Key": "c06cc69c3cmsh64cc8162f926815p16e06fjsn1c3324e05ada",
+    "X-RapidAPI-Key": "2543153259msh194a376a93b86bfp12bba0jsn738dab5baf3f",
     "X-RapidAPI-Host": "imdb8.p.rapidapi.com",
   },
 };
