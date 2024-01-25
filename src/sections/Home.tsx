@@ -46,7 +46,7 @@ const Home = ({ isDark }: { isDark: boolean }) => {
         >
           <TextField
             id="search-bar"
-            label="Search title, album, song, etc..."
+            label="Search Movies, Series, etc..."
             fullWidth
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
