@@ -39,14 +39,14 @@ const Home = ({ isDark }: { isDark: boolean }) => {
         </Typography>
         <Stack
           direction="row"
-          spacing="2px"
           sx={{
             width: { xs: "100%", sm: "500px", md: "600px" },
           }}
         >
           <TextField
+            variant="standard"
             id="search-bar"
-            label="Search Movies, Series, etc..."
+            label="Search movies, series, games and more..."
             fullWidth
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -61,10 +61,9 @@ const Home = ({ isDark }: { isDark: boolean }) => {
             }}
             sx={{
               padding: "1rem",
-              borderRadius: "4px",
-              backgroundColor: "action.hover",
-              backdropFilter: "blur(2px)",
-              ":hover": { opacity: ".8" },
+              ":hover": {
+                color: "primary.main",
+              },
             }}
           >
             <SearchIcon />

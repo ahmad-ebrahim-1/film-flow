@@ -14,16 +14,10 @@ import {
   Button,
   IconButton,
   Stack,
-  Box,
 } from "@mui/material";
 import { LightMode, DarkMode } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
-import MovieIcon from "@mui/icons-material/Movie";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
-import InfoIcon from "@mui/icons-material/Info";
-
-import logo from "../assets/logo.jpg";
 
 // Routes data
 const links: { name: string; path: string; icon: JSX.Element }[] = [
@@ -32,21 +26,21 @@ const links: { name: string; path: string; icon: JSX.Element }[] = [
     path: "/film-flow",
     icon: <HomeIcon />,
   },
-  {
-    name: "Movies",
-    path: "/movies",
-    icon: <MovieIcon />,
-  },
-  {
-    name: "Series",
-    path: "/series",
-    icon: <LiveTvIcon />,
-  },
-  {
-    name: "About",
-    path: "/about",
-    icon: <InfoIcon />,
-  },
+  // {
+  //   name: "Movies",
+  //   path: "/movies",
+  //   icon: <MovieIcon />,
+  // },
+  // {
+  //   name: "Series",
+  //   path: "/series",
+  //   icon: <LiveTvIcon />,
+  // },
+  // {
+  //   name: "About",
+  //   path: "/about",
+  //   icon: <InfoIcon />,
+  // },
 ];
 
 const NavBar = ({
@@ -88,36 +82,17 @@ const NavBar = ({
             maxWidth: "1400px",
           }}
         >
-          <Stack direction="row" spacing={1}>
-            <Box
-              component="img"
-              sx={{
-                height: "28px",
-                borderRadius: "100%",
-                alignSelf: "center",
-              }}
-              alt="Logo"
-              src={logo}
-            />
-            <Typography variant="h6" sx={{ fontFamily: "Lexend" }}>
-              FilmFlow
-            </Typography>
-          </Stack>
+          <Typography variant="h6" sx={{ fontFamily: "Lexend" }}>
+            FilmFlow
+          </Typography>
+
           <Stack
             direction="row"
             spacing={4}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
             {links.map((link) => (
-              <NavLink
-                to={link.path}
-                key={link.name}
-                style={({ isActive }) => {
-                  return {
-                    borderBottom: isActive ? "1px solid #FFF" : "",
-                  };
-                }}
-              >
+              <NavLink to={link.path} key={link.name}>
                 <Button
                   aria-label={link.name}
                   variant="text"
