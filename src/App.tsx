@@ -46,7 +46,7 @@ function App() {
         <main>
           <NavBar isDark={isDark} setIsDark={setIsDark} />
           <Routes>
-            <Route path="/film-flow" element={<Home isDark={isDark} />} />
+            <Route path="/" element={<Home isDark={isDark} />} />
             <Route path="/movies" element={<Movies />} />
             <Route path="/series" element={<Series />} />
             <Route path="/about" element={<About />} />
